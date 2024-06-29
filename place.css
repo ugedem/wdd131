@@ -1,47 +1,89 @@
-:root {
-    --primary-color: #004080;
-    --secondary-color: #FFD700;
-    --font-family: 'Arial, sans-serif';
-}
-
 body {
-    font-family: var(--font-family);
-    color: var(--primary-color);
-    background-color: #f0f0f0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
 
 header {
-    background-color: var(--primary-color);
+    background-color: #d32f2f;
     color: white;
-    padding: 1rem;
+    text-align: center;
+    padding: 1em 0;
 }
 
-nav ul {
+header nav ul {
     list-style: none;
     padding: 0;
 }
 
-nav li {
+header nav ul li {
     display: inline;
-    margin-right: 1rem;
+    margin: 0 1em;
 }
 
-h2::after {
-    content: "⛅";
+header nav ul li a {
+    color: white;
+    text-decoration: none;
 }
 
-@media (max-width: 799px) {
-    /* Mobile styles */
-    header {
-        text-align: center;
-    }
+main {
+    padding: 1em;
+    max-width: 1200px;
+    margin: auto;
+}
 
-    nav li {
-        display: block;
-        margin-bottom: 0.5rem;
-    }
+section {
+    margin-bottom: 2em;
+}
 
-    h2::after {
-        content: url('weather-icon.svg');
-    }
+#overview picture, #overview img {
+    width: 100%;
+    height: auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form label {
+    margin-top: 1em;
+}
+
+#contact-form input, #contact-form textarea, #contact-form button {
+    margin-top: 0.5em;
+    padding: 0.5em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#contact-form button {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: #b71c1c;
+}
+
+footer {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 2em;
 }

@@ -1,25 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Set current year
+document.addEventListener('DOMContentLoaded', () => {
     const yearElement = document.getElementById('year');
-    const currentYear = new Date().getFullYear();
-    yearElement.textContent = currentYear;
-
-    // Set last modified date
     const lastModifiedElement = document.getElementById('last-modified');
-    const lastModifiedDate = new Date(document.lastModified);
-    lastModifiedElement.textContent = lastModifiedDate.toLocaleDateString();
 
-    // Calculate Wind Chill
-    const temperature = 28; // static temperature in °C
-    const windSpeed = 12; // static wind speed in km/h
+    const currentYear = new Date().getFullYear();
+    const lastModified = document.lastModified;
 
-    const calculateWindChill = (temp, speed) => {
-        if (temp <= 10 && speed > 4.8) {
-            return (13.12 + 0.6215 * temp - 11.37 * Math.pow(speed, 0.16) + 0.3965 * temp * Math.pow(speed, 0.16)).toFixed(2);
+    yearElement.textContent = currentYear;
+    lastModifiedElement.textContent = lastModified;
+
+    // Wind Chill Calculation
+    const temperature = 28; // °C
+    const windSpeed = 12; // km/h
+
+    const calculateWindChill = (temp, wind) => {
+        if (temp <= 10 && wind > 4.8) {
+            return (13.12 + 0.6215 * temp - 11.37 * Math.pow(wind, 0.16) + 0.3965 * temp * Math.pow(wind, 0.16)).toFixed(1);
         }
-        return "N/A";
+        return 'N/A';
     };
 
-    const windChillElement = document.getElementById('wind-chill');
-    windChillElement.textContent = calculateWindChill(temperature, windSpeed);
+    const windChill = calculateWindChill(temperature, windSpeed);
+    document.getElementById('wind-chill').textContent = windChill + '°C';
 });
