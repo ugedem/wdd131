@@ -1,0 +1,15 @@
+.gallery {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.gallery figure {
+    margin: 1rem;
+    width: 30%;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+}
