@@ -1,24 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const yearElement = document.getElementById('year');
-    const lastModifiedElement = document.getElementById('last-modified');
+document.addEventListener("DOMContentLoaded", function () {
+    const yearSpan = document.getElementById("year");
+    yearSpan.textContent = new Date().getFullYear();
 
-    const currentYear = new Date().getFullYear();
-    const lastModified = document.lastModified;
+    const lastModifiedSpan = document.getElementById("last-modified");
+    lastModifiedSpan.textContent = document.lastModified;
 
-    yearElement.textContent = currentYear;
-    lastModifiedElement.textContent = lastModified;
+    const temperatureElement = document.getElementById("temperature");
+    const windChillElement = document.getElementById("wind-chill");
+    const windSpeed = 12;
 
-    // Wind Chill Calculation
-    const temperature = 28; // °C
-    const windSpeed = 12; // km/h
+    const temperature = parseFloat(temperatureElement.textContent);
+    if (temperature && windSpeed) {
+        const windChill = calculateWindChill(temperature, windSpeed);
+        windChillElement.textContent = windChill.toFixed(2) + "°C";
+    }
 
-    const calculateWindChill = (temp, wind) => {
-        if (temp <= 10 && wind > 4.8) {
-            return (13.12 + 0.6215 * temp - 11.37 * Math.pow(wind, 0.16) + 0.3965 * temp * Math.pow(wind, 0.16)).toFixed(1);
+    function calculateWindChill(temp, windSpeed) {
+        if (temp <= 10 && windSpeed > 4.8) {
+            return 13.12 + 0.6215 * temp - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * temp * Math.pow(windSpeed, 0.16);
         }
-        return 'N/A';
-    };
+        return "N/A";
+    }
 
-    const windChill = calculateWindChill(temperature, windSpeed);
-    document.getElementById('wind-chill').textContent = windChill + '°C';
+    const contactForm = document.getElementById("contact-form");
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        alert("Form submitted successfully!");
+    });
 });
+

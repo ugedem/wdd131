@@ -1,56 +1,54 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
 header {
-    background-color: #d32f2f;
+    background-color: #4CAF50;
     color: white;
     text-align: center;
     padding: 1em 0;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-header nav ul li {
-    display: inline;
-    margin: 0 1em;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
 main {
-    padding: 1em;
-    max-width: 1200px;
-    margin: auto;
+    padding: 20px;
 }
 
-section {
-    margin-bottom: 2em;
+.info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px 0;
 }
 
-#overview picture, #overview img {
-    width: 100%;
-    height: auto;
+.info-box .data, .info-box .weather {
+    margin: 10px 0;
+}
+
+@media (min-width: 800px) {
+    .info-box {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        flex-direction: row;
+    }
+
+    .info-box .data, .info-box .weather {
+        flex: 1;
+        margin: 0 10px;
+    }
 }
 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1em;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+    gap: 10px;
 }
 
 #contact-form {
@@ -58,32 +56,28 @@ section {
     flex-direction: column;
 }
 
-#contact-form label {
-    margin-top: 1em;
+#contact-form label, #contact-form input, #contact-form textarea, #contact-form button {
+    margin: 10px 0;
 }
 
-#contact-form input, #contact-form textarea, #contact-form button {
-    margin-top: 0.5em;
-    padding: 0.5em;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+#svg-icon {
+    fill: #4CAF50;
+    margin: 20px 0;
 }
 
-#contact-form button {
-    background-color: #d32f2f;
-    color: white;
-    border: none;
-    cursor: pointer;
+.weather-icon {
+    display: none;
 }
 
-#contact-form button:hover {
-    background-color: #b71c1c;
+@media (max-width: 599px) {
+    .weather-icon {
+        display: inline-block;
+    }
 }
 
-footer {
-    background-color: #d32f2f;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    margin-top: 2em;
+@media (min-width: 800px) {
+    h1::after {
+        content: " 🌆";
+    }
 }
+
