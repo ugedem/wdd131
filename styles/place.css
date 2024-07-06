@@ -1,25 +1,39 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #333;
+    --font-family: 'Roboto', Arial, sans-serif;
+    --border-radius: 10px;
+    --padding: 20px;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
     padding: 1em 0;
 }
 
 main {
-    padding: 20px;
+    padding: var(--padding);
+    color: var(--primary-color);
 }
 
 .info-box {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 20px 0;
+    margin: var(--padding) 0;
+    background: rgba(255, 255, 255, 0.8);
+    padding: var(--padding);
+    border-radius: var(--border-radius);
 }
 
 .info-box .data, .info-box .weather {
@@ -32,16 +46,13 @@ main {
         top: 20%;
         left: 50%;
         transform: translate(-50%, -20%);
-        background: rgba(255, 255, 255, 0.8);
-        padding: 20px;
-        border-radius: 10px;
         width: 80%;
         flex-direction: row;
     }
 
     .info-box .data, .info-box .weather {
         flex: 1;
-        margin: 0 10px;
+        margin: 0 var(--padding);
     }
 }
 
@@ -61,8 +72,8 @@ main {
 }
 
 #svg-icon {
-    fill: #4CAF50;
-    margin: 20px 0;
+    fill: var(--primary-color);
+    margin: var(--padding) 0;
 }
 
 .weather-icon {
@@ -80,4 +91,5 @@ main {
         content: " 🌆";
     }
 }
+
 
