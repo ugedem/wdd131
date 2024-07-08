@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="place.css">
-    <script defer src="place.js"></script>
+    <link rel="stylesheet" href="styles/place.css">
+    <script defer src="scripts/place.js"></script>
 </head>
 <body>
     <header>
@@ -20,8 +20,8 @@
     <main>
         <section id="overview">
             <picture>
-                <source srcset="images/Ibadan.webp.webp" media="(min-width: 800px)">
-                <source srcset="images/Ibadan.medium.webp" media="(min-width: 600px)">
+                <source srcset="images/Ibadan-large.webp" media="(min-width: 800px)">
+                <source srcset="images/Ibadan-medium.webp" media="(min-width: 600px)">
                 <img src="images/Ibadan-small.webp" alt="Hero Image of Ibadan">
             </picture>
             <div class="info-box">
@@ -37,11 +37,13 @@
                     <p><strong>Internet TLD:</strong> .ng</p>
                 </div>
                 <div class="weather">
-                    <h2>Weather <span class="weather-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2V7zm0 8h-2v2h2v-2z"/>
-                        </svg>
-                    </span></h2>
+                    <h2>Weather 
+                        <span class="weather-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2V7zm0 8h-2v2h2v-2z"/>
+                            </svg>
+                        </span>
+                    </h2>
                     <p><strong>Temperature:</strong> <span id="temperature">28°C</span></p>
                     <p><strong>Conditions:</strong> Partly Cloudy</p>
                     <p><strong>Wind:</strong> 12 km/h</p>
@@ -75,8 +77,5 @@
     <footer>
         <p>&copy; <span id="year"></span> Aaron Uwem Edem. Last Modified: <span id="last-modified"></span></p>
     </footer>
-    <svg id="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2V7zm0 8h-2v2h2v-2z"/>
-    </svg>
 </body>
 </html>
