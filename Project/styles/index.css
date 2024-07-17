@@ -1,13 +1,13 @@
 /* styles/index.css */
 body {
-    font-family: Georgia, serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f4f4f9;
     color: #333;
 }
 
-header, footer {
+header {
     background-color: #006400;
     color: white;
     padding: 1rem 0;

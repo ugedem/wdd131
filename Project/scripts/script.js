@@ -61,39 +61,43 @@ document.addEventListener('DOMContentLoaded', () => {
             const div = document.createElement('div');
             div.classList.add('language-item');
             div.innerHTML = `
-                <img src="${language.image}" alt="${language.name} language">
+                <img src="${language.image}" alt="${language.name}" loading="lazy">
                 <h3>${language.name}</h3>
                 <p>${language.description}</p>
                 <ul>
-                    ${language.phrases.map(phrase => `<li>${phrase.english}: <span class="dialogue">${phrase.translation}</span></li>`).join('')}
+                    ${language.phrases.map(phrase => `
+                        <li>
+                            <span class="dialogue">${phrase.english}</span>: ${phrase.translation}
+                        </li>
+                    `).join('')}
                 </ul>
-                <p><a href="${language.resourceLink}" target="_blank">Learn more about ${language.name}</a></p>
+                <a href="${language.resourceLink}" target="_blank">Learn more</a>
             `;
             languagesList.appendChild(div);
         });
     }
 
-    // Contact form submission
+    // Handle form submission
     const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
     if (contactForm) {
-        contactForm.addEventListener('submit', event => {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
 
-            // Validate inputs
-            if (name && email && message) {
-                // Save to localStorage
-                localStorage.setItem('contactForm', JSON.stringify({ name, email, message }));
-
-                // Display success message
-                const formStatus = document.getElementById('form-status');
-                formStatus.textContent = 'Thank you for your message! We will get back to you soon.';
+            // Simulate form submission
+            setTimeout(() => {
+                formStatus.textContent = 'Thank you for your message!';
                 contactForm.reset();
-            } else {
-                alert('Please fill in all fields.');
-            }
+                // Store form data in localStorage
+                const messages = JSON.parse(localStorage.getItem('messages')) || [];
+                messages.push({ name, email, message });
+                localStorage.setItem('messages', JSON.stringify(messages));
+            }, 500);
         });
     }
 });
